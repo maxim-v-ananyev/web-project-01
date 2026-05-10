@@ -16,22 +16,6 @@
     "mark": "s"
   },
   {
-    "number": 1,
-    "symbol": "D",
-    "name": "Deuterium",
-    "electronic_configuration": "1s1",
-    "s": 1,
-    "f": 0,
-    "d": 0,
-    "p": 0,
-    "period": 1,
-    "group": 1,
-    "is_main_gp": 1,
-    "atomic_mass": 2,
-    "is_one_isotope": 0,
-    "mark": "s"
-  },
-  {
     "number": 2,
     "symbol": "He",
     "name": "Helium",

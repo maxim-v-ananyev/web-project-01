@@ -1,0 +1,57 @@
+#containerTable {
+    display: grid;
+    grid-template-columns: repeat(18, 50px);
+    gap: 3px;
+}
+
+button {
+    height: 50px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(222, 222, 222);
+}
+
+button:hover {
+    background-color: rgb(190, 190, 190);
+}
+
+.empty {
+visibility: hidden;
+}
+
+.stype {
+    background-color: rgb(240, 86, 86);
+}
+.stype:hover {
+    background-color: rgb(209, 74, 74);
+}
+
+.dtype {
+    background-color: rgb(136, 238, 170);
+}
+.dtype:hover {
+    background-color: rgb(114, 203, 144);
+}
+
+.ftype {
+    background-color: rgb(152, 169, 235);
+}
+.ftype:hover {
+    background-color: rgb(129, 143, 199);
+}
+
+.ntype {
+    background-color: rgb(228, 242, 137);
+}
+.ntype:hover {
+    background-color: rgb(196, 208, 116);
+}
+.disabled {
+    background-color: transparent;
+    cursor: default;
+}
+.disabled:hover {
+    background-color: transparent;
+    cursor: default;
+}
