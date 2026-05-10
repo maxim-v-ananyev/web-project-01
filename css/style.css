@@ -20,7 +20,7 @@ button:hover {
 visibility: hidden;
 }
 
-.stype {
+/* .stype {
     background-color: rgb(240, 86, 86);
 }
 .stype:hover {
@@ -54,4 +54,4 @@ visibility: hidden;
 .disabled:hover {
     background-color: transparent;
     cursor: default;
-}
+} */

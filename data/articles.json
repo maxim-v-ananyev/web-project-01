@@ -1,0 +1,62 @@
+[
+    {
+        "doi": "10.1107/S0567739476001551",
+        "short_name": "Shannon (1976) Acta Crystallographica Section A ",
+        "authors": "R. D. Shannon",
+        "first_author": "Shannon",
+        "title": "Revised effective ionic radii and systematic studies of interatomic distances in halides and chalcogenides",
+        "journal": "Acta Crystallographica Section A",
+        "year": 1976,
+        "volume": "32",
+        "issue": "5",
+        "pages": "751-767"
+    },
+    {
+        "doi": "10.1016/0022-4596(91)90388-X",
+        "short_name": "Jia (1991) Journal of Solid State Chemistry ",
+        "authors": "Y.Q. Jia",
+        "first_author": "Jia",
+        "title": "Crystal radii and effective ionic radii of the rare earth ions",
+        "journal": "Journal of Solid State Chemistry",
+        "year": 1991,
+        "volume": "95",
+        "issue": "1",
+        "pages": "184-187"
+    },
+    {
+        "doi": "10.1016/j.commatsci.2024.113491",
+        "short_name": "Alsalman (2025) Computational Materials Science ",
+        "authors": "Mohammed A. Alsalman, Mahmoud S. Hezam, Saad M. Alqahtani, Ahmer A.B. Baloch, Fahhad H. Alharbi",
+        "first_author": "Alsalman",
+        "title": "Anions’ Radii — New data points calibrated to match Shannon’s table",
+        "journal": "Computational Materials Science",
+        "year": 2025,
+        "volume": "247",
+        "issue": null,
+        "pages": "113491"
+    },
+    {
+        "doi": "10.1103/PhysRevMaterials.5.043804",
+        "short_name": "Baloch (2021) Physical Review Materials ",
+        "authors": "Ahmer A. B. Baloch, Saad M. Alqahtani, Faisal Mumtaz, Ali H. Muqaibel, Sergey N. Rashkeev, Fahhad H. Alharbi",
+        "first_author": "Baloch",
+        "title": "Extending Shannon's ionic radii database using machine learning",
+        "journal": "Physical Review Materials",
+        "year": 2021,
+        "volume": "5",
+        "issue": "4",
+        "pages": null
+    },
+    {
+        "doi": "10.1515/pac-2015-0305",
+        "short_name": "Meija (2016) Pure and Applied Chemistry ",
+        "authors": "Juris Meija, Tyler B. Coplen, Michael Berglund, Willi A. Brand, Paul De Bièvre, Manfred Gröning, Norman E. Holden, Johanna Irrgeher, Robert D. Loss, Thomas Walczyk, Thomas Prohaska",
+        "first_author": "Meija",
+        "title": "Atomic weights of the elements 2013 (IUPAC Technical Report)",
+        "journal": "Pure and Applied Chemistry",
+        "year": 2016,
+        "volume": "88",
+        "issue": "3",
+        "pages": "265-291"
+    }
+]

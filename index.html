@@ -20,7 +20,7 @@
             </div>
             <div class="col-3 my-4">
                 <table class="table caption-top">
-                    <caption>Selected Element Information</caption>
+                    <caption>Selected element information</caption>
                     <tbody>
                         <tr>
                             <th scope="row" class="text-start">Symbol</th>
@@ -39,12 +39,15 @@
                             <td id="elElecConf" class="text-start"></td>
                         </tr>                        
                         <tr>
-                            <th scope="row" class="text-start">Atomic Mass</th>
+                            <th scope="row" class="text-start">
+                                Atomic Mass
+                                <a href="#" id="referenceAtomicMass">[*]</a>
+                            </th>
                             <td id="elAtomMass" class="text-start"></td>
                         </tr>                        
                         <tr>
                             <th scope="row" class="text-start">
-                                <a href="#" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
+                                <a href="#" onclick="loadRadii()" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
                                     Show Radii
                                 </a>
                             </th>
@@ -65,35 +68,30 @@
         </div>
         <div class="row">
             <div class="col-12 my-4">
-                <table id="elementsTable">
-                    <thead>
-                        <tr>
-                            <th>Number</th>
-                            <th>Symbol</th>
-                            <th>Name</th>
-                            <th>Electronic Configuration</th>
-                            <th>ns</th>
-                            <th>(n-2)f</th>
-                            <th>(n-1)d</th>
-                            <th>np</th>
-                            <th>Period</th>
-                            <th>Group</th>
-                            <th>is_main_group</th>
-                            <th>Atomic Mass</th>
-                            <th>is_one_isotope</th>
-                            <th>Mark</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
+                <table id="Information" class="table table-hover caption-top">
+                    <thead></thead>
+                    <tbody></tbody>
                 </table>
                 
             </div>
         </div>
     </div>
 
-    <div>
+<!-- Modal about the references -->
+    <div class="modal" id="referenceModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Reference Information</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="referenceModalBody">
+    <!--                here will be the table-->
+                </div>
+            </div>
+        </div>
     </div>
+
     <script src="js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>

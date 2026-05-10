@@ -11,6 +11,15 @@ const elements = [
 ];
 
 let elementsInfo = [];
+let articlesInfo = [];
+let selectedSymbol = "";
+
+async function loadArticles() {
+    const response = await fetch("data/articles.json");
+    articlesInfo = await response.json();
+    console.log(articlesInfo)
+}
+loadArticles();
 
 async function loadElements() {
     const response = await fetch("data/elements.json");
@@ -51,6 +60,8 @@ function createButtons() {
                 document.getElementById("elNumber").textContent = foundElement.number;
                 document.getElementById("elElecConf").textContent = foundElement.electronic_configuration;
                 document.getElementById("elAtomMass").textContent = foundElement.atomic_mass;
+                selectedSymbol = foundElement.symbol;
+                console.log(selectedSymbol)
             });
         }
         periodicTable.appendChild(btn);
@@ -59,39 +70,131 @@ function createButtons() {
 
 loadElements();
 
-// async function loadElements() {
-//   // Load JSON file
-//   const response = await fetch("data/elements.json");
+async function loadRadii() {
+    // selectedSymbol = "La"
+    const response = await fetch("data/radii.json");
+    const elements = await response.json();
 
-//   // Convert response to JS object
-//   const elements = await response.json();
+    let filtered;
+    if (selectedSymbol) {
+        filtered = elements.filter(e => e.symbol === selectedSymbol);
+    }
+    else {
+        filtered = elements;
+    }
+    // const filtered = elements.filter(e => e.symbol === selectedSymbol);
 
-//   // Get table body
-//   const tableBody = document.querySelector("#elementsTable tbody");
+// Caption of the table
+    const table = document.getElementById("Information");
+    const oldCaption = table.querySelector("caption");
+    if (oldCaption) {
+        oldCaption.remove();
+    }
+    const caption = document.createElement("caption");
+    caption.textContent = "Information about covalent and ionic radii";
+    caption.classList.add("caption-top");
+    table.appendChild(caption);
 
-//   // Create rows
-//   elements.forEach(element => {
-//     const row = document.createElement("tr");
+// Table content
+    const tableBody = document.querySelector("#Information tbody");
+    document.querySelector("#Information tbody").innerHTML = "";
 
-//     row.innerHTML = `
-//       <td>${element.number}</td>
-//       <td>${element.symbol}</td>
-//       <td>${element.name}</td>
-//       <td>${element.electronic_configuration}</td>
-//       <td>${element.s}</td>
-//       <td>${element.f}</td>
-//       <td>${element.d}</td>
-//       <td>${element.p}</td>
-//       <td>${element.period}</td>
-//       <td>${element.group}</td>
-//       <td>${element.is_main_gp}</td>
-//       <td>${element.atomic_mass}</td>
-//       <td>${element.is_one_isotope}</td>
-//       <td>${element.mark}</td>
-//     `;
+    const headerRow = document.createElement("tr");
+    headerRow.innerHTML = `
+        <th>Number</th>
+        <th>Symbol</th>
+        <th>Charge</th>
+        <th>Period</th>
+        <th>ns</th>
+        <th>(n-2)f</th>
+        <th>(n-1)d</th>
+        <th>np</th>
+        <th>Coordination Number</th>
+        <th>High Spin</th>
+        <th>Covalent Radius</th>
+        <th>Ionic Radius</th>
+        <th>Reference</th>
+    `;
+    tableBody.appendChild(headerRow);
 
-//     tableBody.appendChild(row);
-//   });
-// }
+    filtered.forEach(element => {
+        const row = document.createElement("tr");
 
-// loadElements();
+        row.innerHTML = `
+        <td>${element.number}</td>
+        <td>${element.symbol}</td>
+        <td>${element.charge}</td>
+        <td>${element.period}</td>
+        <td>${element.s}</td>
+        <td>${element.f}</td>
+        <td>${element.d}</td>
+        <td>${element.p}</td>
+        <td>${element.coordination_number}</td>
+        <td>${element.is_high_spin}</td>
+        <td>${element.covalent_radius}</td>
+        <td>${element.ionic_radius}</td>
+        <td><a href="javascript:void(0);" class="link-success" 
+                onclick="showReferenceModal('${element.doi}')">${element.reference}</a></td>
+        `;
+
+        tableBody.appendChild(row);
+    });
+}
+
+
+const link = document.getElementById("referenceAtomicMass");
+
+document.getElementById("referenceAtomicMass").addEventListener("click", function (e) {
+    e.preventDefault();
+    showReferenceModal("10.1515/pac-2015-0305");
+});
+
+function showReferenceModal(articleDOI) {
+    const modalEl = document.getElementById('referenceModal');
+    const referenceModalBody = document.getElementById('referenceModalBody');
+
+    const modalData = articlesInfo.find(item => item.doi === articleDOI);
+
+    // console.log(modalData);
+
+    if (!modalData) {
+        referenceModalBody.innerHTML = "<p>No data found</p>";
+        return;
+    }
+
+    let tableHTML = `
+        <table class="table table-striped table-bordered">
+            <tbody>
+    `;
+
+    const selectedKeys = [
+        'doi',
+        'authors',
+        'title',
+        'journal',
+        'volume',
+        'issue',
+        'pages'
+    ];
+
+    selectedKeys.forEach(key => {
+        if (modalData.hasOwnProperty(key)) {
+            tableHTML += `
+                <tr>
+                    <td><strong>${key}</strong></td>
+                    <td>${modalData[key]}</td>
+                </tr>
+            `;
+        }
+    });
+
+    tableHTML += `
+            </tbody>
+        </table>
+    `;
+
+    referenceModalBody.innerHTML = tableHTML;
+
+    const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+    modal.show();
+}
