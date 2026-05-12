@@ -119,6 +119,7 @@ async function loadRadii() {
 
     filtered.forEach(element => {
         const row = document.createElement("tr");
+        const articleNumber = articlesInfo.findIndex(item =>item.doi === element.doi)+1;
 
         row.innerHTML = `
         <td>${element.number}</td>
@@ -134,7 +135,9 @@ async function loadRadii() {
         <td>${element.covalent_radius}</td>
         <td>${element.ionic_radius}</td>
         <td><a href="javascript:void(0);" class="link-success" 
-                onclick="showReferenceModal('${element.doi}')">${element.reference}</a></td>
+                onclick="showReferenceModal('${element.doi}')">
+                [${articleNumber}]
+                </a></td>
         `;
 
         tableBody.appendChild(row);
